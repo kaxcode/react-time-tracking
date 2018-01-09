@@ -9,7 +9,7 @@ class TimersDashboard extends React.Component {
         <div className='column'>
           <EditableTimerList />
           <ToggleableTimerForm
-            isOpen={true}
+            isOpen={false}
           />
         </div>
       </div>
@@ -51,7 +51,7 @@ class EditableTimerList extends React.Component {
           project='World Domination'
           elapsed='3890985'
           runningSince={null}
-          editFormOpen={true}
+          editFormOpen={false}
         />
       </div>
     );
