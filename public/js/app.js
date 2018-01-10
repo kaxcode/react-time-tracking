@@ -148,6 +148,11 @@ class Timer extends React.Component {
 }
 
 class TimerForm extends React.Component {
+  state = {
+    title: this.props.title || '',
+    project: this.props.project || '',
+  };
+
   render() {
     const submitText = this.props.title ? 'Update' : 'Create';
     return (
@@ -156,11 +161,11 @@ class TimerForm extends React.Component {
           <div className='ui form'>
             <div className='field'>
               <label>Title</label>
-              <input type='text' defaultValue={this.props.title} />
+              <input type='text' defaultValue={this.state.title} />
             </div>
             <div className='field'>
               <label>Project</label>
-              <input type='text' defaultValue={this.props.project} />
+              <input type='text' defaultValue={this.state.project} />
             </div>
             <div className='ui two bottom attached buttons'>
               <button className='ui basic blue button'>
