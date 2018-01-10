@@ -161,11 +161,19 @@ class TimerForm extends React.Component {
           <div className='ui form'>
             <div className='field'>
               <label>Title</label>
-              <input type='text' defaultValue={this.state.title} />
+              <input
+                type='text'
+                value={this.state.title}
+                onChange={this.handleTitleChange}
+              />
             </div>
             <div className='field'>
               <label>Project</label>
-              <input type='text' defaultValue={this.state.project} />
+              <input
+                type='text'
+                value={this.state.project}
+                onChange={this.handleProjectChange}
+              />
             </div>
             <div className='ui two bottom attached buttons'>
               <button className='ui basic blue button'>
