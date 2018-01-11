@@ -153,6 +153,14 @@ class TimerForm extends React.Component {
     project: this.props.project || '',
   };
 
+  handleTitleChange = (e) => {
+    this.setState({ title: e.target.value });
+  };
+
+  handleProjectChange = (e) => {
+    this.setState({ project: e.target.value})
+  };
+
   render() {
     const submitText = this.props.title ? 'Update' : 'Create';
     return (
