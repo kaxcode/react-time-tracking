@@ -18,18 +18,18 @@ class TimersDashboard extends React.Component {
         id: uuid.v4(),
         elapsed: 1273998,
         runningSince: null,
-      }
-    ]
+      },
+    ],
   };
 
   render() {
     return (
       <div className='ui three column centered grid'>
         <div className='column'>
-          <EditableTimerList />
-          <ToggleableTimerForm
-            isOpen={false}
+          <EditableTimerList
+            timers={this.state.timers}
           />
+          <ToggleableTimerForm />
         </div>
       </div>
     );
@@ -42,8 +42,8 @@ class ToggleableTimerForm extends React.Component {
   };
 
   handleFormOpen = () => {
-    this.setState({ isOpen: true});
-  }
+    this.setState({ isOpen: true });
+  };
 
   render() {
     if (this.state.isOpen) {
@@ -72,16 +72,16 @@ class EditableTimerList extends React.Component {
         key={timer.id}
         id={timer.id}
         title={timer.title}
-        project={timer.elapsed}
+        project={timer.project}
         elapsed={timer.elapsed}
         runningSince={timer.runningSince}
       />
     ));
-      return (
+    return (
       <div id='timers'>
-       {timers}
+        {timers}
       </div>
-    )
+    );
   }
 }
 
@@ -158,7 +158,7 @@ class TimerForm extends React.Component {
   };
 
   handleProjectChange = (e) => {
-    this.setState({ project: e.target.value})
+    this.setState({ project: e.target.value });
   };
 
   render() {
