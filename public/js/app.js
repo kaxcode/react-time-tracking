@@ -228,7 +228,7 @@ class Timer extends React.Component {
             </span>
             <span 
               className='right floated trash icon'
-              onFormSubmit={this.handleTrashClick}
+              onClick={this.handleTrashClick}
             >
               <i className='trash icon' />
             </span>
