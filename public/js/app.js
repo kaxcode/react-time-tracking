@@ -199,6 +199,14 @@ class EditableTimer extends React.Component {
 }
 
 class Timer extends React.Component {
+  componentDidMount() {
+    this.forceUpdateInterval = setInterval(() => this.forceUpdate(), 50);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.forceUpdateInterval);
+  }
+
   handleTrashClick = () => {
     this.props.onTrashClick(this.props.id);
   };
