@@ -49,6 +49,22 @@ class TimersDashboard extends React.Component {
     });
   };
 
+  startTimer = (timerId) => {
+    const now = Date.now();
+
+    this.setState({
+      timers: this.state.timers.map((timer) => {
+        if (timer.id === timerId) {
+          return Object.assign({}, timer, {
+            runningSince: now,
+          });
+        } else {
+          return timer;
+        }
+      }),
+    });
+  };
+
   createTimer = (timer) => {
     const t = helpers.newTimer(timer);
     this.setState({
