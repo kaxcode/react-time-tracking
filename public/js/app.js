@@ -1,5 +1,3 @@
-import { setInterval } from "timers";
-
 /*
   eslint-disable react/prefer-stateless-function, react/jsx-boolean-value,
   no-undef, jsx-a11y/label-has-for, react/jsx-first-prop-new-line
@@ -29,7 +27,6 @@ class TimersDashboard extends React.Component {
     this.updateTimer(attrs);
   };
 
-  // Inside TimersDashboard
   handleTrashClick = (timerId) => {
     this.deleteTimer(timerId);
   };
@@ -108,7 +105,6 @@ class TimersDashboard extends React.Component {
     return (
       <div className='ui three column centered grid'>
         <div className='column'>
-          {/* Inside TimerDashboard.render() */}
           <EditableTimerList
             timers={this.state.timers}
             onFormSubmit={this.handleEditFormSubmit}
@@ -168,7 +164,6 @@ class ToggleableTimerForm extends React.Component {
 
 class EditableTimerList extends React.Component {
   render() {
-    // Inside EditableTimerList
     const timers = this.props.timers.map((timer) => (
       <EditableTimer
         key={timer.id}
@@ -228,7 +223,6 @@ class EditableTimer extends React.Component {
           onFormClose={this.handleFormClose}
         />
       );
-      // Inside EditableTimer
     } else {
       return (
         <Timer
@@ -252,7 +246,6 @@ class Timer extends React.Component {
     this.forceUpdateInterval = setInterval(() => this.forceUpdate(), 50);
   }
 
-  // Inside Timer
   componentWillUnmount() {
     clearInterval(this.forceUpdateInterval);
   }
@@ -264,7 +257,6 @@ class Timer extends React.Component {
   handleStopClick = () => {
     this.props.onStopClick(this.props.id);
   };
-  // ...
 
   handleTrashClick = () => {
     this.props.onTrashClick(this.props.id);
@@ -303,7 +295,6 @@ class Timer extends React.Component {
             </span>
           </div>
         </div>
-        {/* At the bottom of `Timer.render()`` */}
         <TimerActionButton
           timerIsRunning={!!this.props.runningSince}
           onStartClick={this.handleStartClick}
