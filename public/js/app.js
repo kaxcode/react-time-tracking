@@ -72,10 +72,11 @@ class TimersDashboard extends React.Component {
 
     client.deleteTimer(
       { id: timerId }
-    )
+    );
   };
 
   startTimer = (timerId) => {
+    // ...
     const now = Date.now();
 
     this.setState({
@@ -91,7 +92,7 @@ class TimersDashboard extends React.Component {
     });
 
     client.startTimer(
-        { id: timerId, start: now}
+      { id: timerId, start: now }
     );
   };
 
@@ -113,7 +114,7 @@ class TimersDashboard extends React.Component {
     });
 
     client.stopTimer(
-      { id: timerId, stop: now}
+      { id: timerId, stop: now }
     );
   };
 
